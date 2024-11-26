@@ -1,0 +1,12 @@
+{
+  "name": "rouda/monolog-handler",
+  "description": "Implement the logging of your application into the rouda.online dashboard.",
+  "autoload": {
+    "psr-4": {
+      "rouda\\monologHandler\\": "src/"
+    }
+  },
+  "require": {
+    "monolog/monolog": "^3.0"
+  }
+}
