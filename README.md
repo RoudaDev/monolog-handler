@@ -13,7 +13,7 @@ This package provides an integration for the Monolog logging library to send log
 To install this package, you can use Composer:
 
 ```
-composer install rouda/monolog-handler
+composer require rouda/monolog-handler
 ```
 
 To use this package as a logging channel in Laravel, you need to add the following code to the `logging.php` configuration file:
@@ -24,8 +24,7 @@ To use this package as a logging channel in Laravel, you need to add the followi
      'handler' => rouda\monologHandler\ApiLogger::class,
      'with' => [
          'authToken' => 'string',
-         'applicationId' => 'string',
-         'applicationEnv' => 'string',
+         'environmentId' => 'string',
      ],
  ],
 ```

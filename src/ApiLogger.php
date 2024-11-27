@@ -12,15 +12,13 @@ class ApiLogger extends AbstractProcessingHandler
 {
     protected $apiUrl;
     protected $authToken;
-    protected $applicationId;
-    protected $applicationEnv;
+    protected $resourceId;
 
-    public function __construct(string $authToken, string $applicationId, string $applicationEnv, int|string|Level $level = Level::Debug, bool $bubble = true)
+    public function __construct(string $authToken, string $resourceId, int|string|Level $level = Level::Debug, bool $bubble = true)
     {
-        $this->apiUrl = 'https://rouda.online/api/application/log';
+        $this->apiUrl = 'https://rouda.online/api/log';
         $this->authToken = $authToken;
-        $this->applicationId = $applicationId;
-        $this->applicationEnv = $applicationEnv;
+        $this->resourceId = $resourceId;
 
         parent::__construct($level, $bubble);
     }
@@ -49,8 +47,7 @@ class ApiLogger extends AbstractProcessingHandler
             'Accept: application/json',
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->authToken,
-            'X-Application-Id: ' . $this->applicationId,
-            'X-Application-env: ' . $this->applicationEnv,
+            'X-resource-Id: ' . $this->resourceId,
         ]);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
